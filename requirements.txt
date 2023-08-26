@@ -1,6 +1,4 @@
 python-telegram-bot
-scikit-learn
 sqlalchemy
+mindsdb_sdk
 pandas
-numpy
-nltk
