@@ -32,12 +32,12 @@ def is_cyberbullying(text):
     else: 
         return False
 
-#stsrt command
+#start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Give a simple explanation of what the bot 
         does"""
     await context.bot.send_message(
-        chat_id=update.effective_chat.id, text=f"This is a cyber bullying bot, I Will help you remove users who engage in cyber-bullying on your group chats\nHow to use?\n\nAdd me as an admin to your group chat and give me permission to remove users, send and delete messages.  \nUsers are given {MAX_BULLYING_MESSAGES} opportunities, if a user has sent up to {MAX_BULLYING_MESSAGES} messages recognized as cyberbullying, the user will be removed and banned for {NO_BANNED_DAYS} days!"
+        chat_id=update.effective_chat.id, text=f"This is a cyber bullying bot. In a bid to kick against cyberbullying, I will help you remove users who engage in cyber-bullying on your group chats\nWondering how to use?\nAdd me as an admin to your group chat and give me permission to remove users, send and delete messages.  With this, users are given {MAX_BULLYING_MESSAGES} lifelines. If a user has sent up to {MAX_BULLYING_MESSAGES} messages recognized as cyberbullying, I will see to the user being removed and banned for {NO_BANNED_DAYS} days!"
     )
 
 #cyberbullying handler
@@ -59,13 +59,13 @@ async def remove_cyberbullying(update: Update, context: ContextTypes.DEFAULT_TYP
            reset_user_record(sender_id,chat_id)
 
            #remove user 
-           await context.bot.send_message(chat_id=update.effective_chat.id, text=f"The message you've sent is a abusive, and you've exceeding the cyberbullying limit, you'll be banned from the group chat for {NO_BANNED_DAYS} days!!",reply_to_message_id=message.message_id)
+           await context.bot.send_message(chat_id=update.effective_chat.id, text=f"The message you sent in is ABUSIVE. Since you have exceeded the cyberbullying limit, you'll be banned from the group chat for {NO_BANNED_DAYS} days!!",reply_to_message_id=message.message_id)
 
            await context.bot.ban_chat_member(chat_id=chat_id,user_id=sender_id, revoke_messages=False, until_date=unban_date)
 
        else:
            #send a message that the person has sent an abusive message 
-           await context.bot.send_message(chat_id=update.effective_chat.id, text="The message you've sent is a abusive, be careful or you'll be removed from the group chat soon!",reply_to_message_id=message.message_id)
+           await context.bot.send_message(chat_id=update.effective_chat.id, text="The message you've sent in is ABUSIVE. We strongly advise you to reconsider your actions and engage in conversations that are supportive and kind. You are advised to be careful and adhere with the guidelines. Else, you'll be removed from the group chat soon!",reply_to_message_id=message.message_id)
 
 if __name__ == "__main__":
     application = Application.builder().token(TOKEN).build()
