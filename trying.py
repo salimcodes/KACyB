@@ -9,7 +9,6 @@ model = project.list_models()[0] #Selecting the model to use. The index 0 is use
 text = input("Enter a text: ")
 text = {text}
 result = pd.DataFrame(text)
-#result = pd.DataFrame(text)
 print(model.predict(result)["oh_label"].loc[0])
 
 """

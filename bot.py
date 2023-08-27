@@ -16,22 +16,21 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
-"""
+
 import mindsdb_sdk
 import pandas as pd
 server = mindsdb_sdk.connect('https://cloud.mindsdb.com', login='salimonyinlola@outlook.com', password='Qwerty12345')
 project = server.get_project("mindsdb")
 model = project.list_models()[0] #Selecting the model to use. The index 0 is used because this is the first model in the list of models on the account
+
+#check if text is cyberbullying
 def is_cyberbullying(text):
-    if model.predict(text)["oh_label"].loc[0] == 1:
+    text = {text}
+    result = pd.DataFrame(text)
+    if model.predict(result)["oh_label"].loc[0] == 1:
         return True 
     else: 
         return False
-"""    
-def is_cyberbullying(text):
-    if "fool" in text:
-        return True
-    return False
 
 #stsrt command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
