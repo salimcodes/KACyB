@@ -8,7 +8,7 @@ from database import add_to_db, has_hit_limit, reset_user_record,MAX_BULLYING_ME
 
 #maximum number of bullying_messages
 NO_BANNED_DAYS=3
-TOKEN="6107606064:AAFCxmy-IZ-IVzAEOhccO85HyBcGkiBayOQ"
+TOKEN=""
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
